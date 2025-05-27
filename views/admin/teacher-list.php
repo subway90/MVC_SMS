@@ -41,8 +41,8 @@
                             <th class="min-w-5x">Số điện thoại</th>
                             <th class="min-w-5x">Năm sinh</th>
                             <th class="min-w-5x">Chức danh</th>
-                            <th class="min-w-5x">Địa chỉ</th>
-                            <th class="min-w-10x" data-orderable="false">Hành động</th>
+                            <th class="min-w-10x">Địa chỉ</th>
+                            <th class="min-w-5x text-end" data-orderable="false">Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,14 +95,15 @@
                                 Số nhà <?= mt_rand(1,99) . ', Hẻm ' . mt_rand(1,99) . ', Phường ' . mt_rand(1,15). ', Quận ' . mt_rand(1,12). ', ' . $arr_address[$order_address] ?>
                             </td>
                             <td class="small">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex justify-content-end gap-3">
+                                    <a href="<?= URL_ADMIN ?>chi-tiet-giao-vien" class="btn btn-sm btn-primary shadow small d-flex align-items-center gap-3">
+                                        <i class="fa fas fa-eye"></i>
+                                    </a>
                                     <button class="btn btn-sm btn-warning shadow small d-flex align-items-center gap-3" data-bs-target="#editTeacher" data-bs-toggle="modal">
                                         <i class="fa fas fa-edit"></i>
-                                        <span class="small">Sửa</span>
                                     </button>
                                     <button class="btn btn-sm btn-danger shadow small d-flex align-items-center gap-3">
                                         <i class="fa fas fa-trash"></i>
-                                        <span class="small">Xoá</span>
                                     </button>
                                 </div>
                             </td>
