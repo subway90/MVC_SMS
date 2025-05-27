@@ -1,3 +1,15 @@
+<style>
+    .modal-backdrop {
+        z-index: 1049;
+    }
+    .modal {
+        z-index: 1050;
+    }
+    .datepicker {
+        z-index: 1051;
+    }
+</style>
+ 
  <!-- sa-app__body -->
  <div id="top" class="sa-app__body">
     <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
@@ -12,7 +24,7 @@
                         </nav>
                     </div>
                     <div class="col-auto d-flex">
-                        <a href="<?=URL_ADMIN?>them-giao-vien" class="btn btn-primary shadow"><i class="fa fas fa-plus me-2"></i>Thêm giáo viên</a>
+                        <button data-bs-target="#addTeacher" data-bs-toggle="modal" class="btn btn-primary shadow"><i class="fa fas fa-plus me-2"></i>Thêm giáo viên</button>
                     </div>
                 </div>
             </div>
@@ -84,11 +96,11 @@
                             </td>
                             <td class="small">
                                 <div class="d-flex gap-3">
-                                    <a href="#" class="btn btn-sm btn-warning shadow small d-flex align-items-center gap-3">
+                                    <button class="btn btn-sm btn-warning shadow small d-flex align-items-center gap-3" data-bs-target="#editTeacher" data-bs-toggle="modal">
                                         <i class="fa fas fa-edit"></i>
                                         <span class="small">Sửa</span>
-                                    </a>
-                                    <button name="delete" value="#" type="submit" class="btn btn-sm btn-danger shadow small d-flex align-items-center gap-3">
+                                    </button>
+                                    <button class="btn btn-sm btn-danger shadow small d-flex align-items-center gap-3">
                                         <i class="fa fas fa-trash"></i>
                                         <span class="small">Xoá</span>
                                     </button>
@@ -103,23 +115,52 @@
     </div>
 </div>
 
-<?php
-if(isset($_SESSION['edit_category'])) {
-    extract($_SESSION['edit_category'])
-?>
-<div class="modal fade" id="modalEditCategoryProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+
+<div class="modal fade" id="editTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sửa danh mục ID = <?=$id?></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin</h5>
                 <button type="button" class="sa-close sa-close--modal" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="post">
-            <div class="modal-body px-5">
-                <?=show_error($error_valid)?>
-                <div class="form-floating mb-3">
-                    <input name="name" value="<?=$name?>" type="text" class="form-control" id="name" placeholder="input">
-                    <label for="name">Tên danh mục</label>
+            <div class="modal-body row px-5">
+                <div class="col-12 d-flex align-items-center mb-5">
+                    <img width="50" class="rounded-circle" src="<?= DEFAULT_AVATAR ?>" alt="">
+                    <div class="ms-5">
+                        <div class="fw-bold fs-5">
+                            Nguyễn Văn A
+                        </div>
+                        <div class="small">
+                            <div class="badge badge-sa-warning">
+                                Giáo viên cao cấp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Họ và tên</label>
+                    <input name="name" value="Nguyễn Văn A" type="text" class="form-control" id="name" placeholder="input">
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Số điện thoại</label>
+                    <input name="name" value="0965279041" type="text" class="form-control" id="name" placeholder="input">
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Ngày sinh</label>
+                    <input name="duration_time" value="31-05-2004" type="text" 
+                        class="form-control datepicker-here" 
+                        data-toggle-selected="false" 
+                        placeholder="Nhấn vào để chọn" 
+                        data-auto-close="true" 
+                        data-language="en"
+                        data-date-format="dd-mm-yyyy"
+                        data-first-day="1" 
+                        aria-label="Datepicker" />
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Địa chỉ</label>
+                    <input name="name" value="102 Tân Thới Nhất 01, Quận 12, Hồ Chí Minh" type="text" class="form-control" id="name" placeholder="input">
                 </div>
             </div>
             <div class="modal-footer">
@@ -130,95 +171,46 @@ if(isset($_SESSION['edit_category'])) {
         </div>
     </div>
 </div>
-<?php }?>
 
-<div id="overlay"></div>
-<div id="largeImage">
-    <img id="largeImageView" src="" alt="">
-    <div class="text-center">
-        <span class="mt-5 small text-decoration-underline text-light">Nhấn vào màn hình để tắt</span>
+<div class="modal fade" id="addTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm giáo viên</h5>
+                <button type="button" class="sa-close sa-close--modal" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post">
+            <div class="modal-body row px-5">
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Họ và tên</label>
+                    <input name="name" value="" type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Số điện thoại</label>
+                    <input name="name" value="" type="text" class="form-control" id="name" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Ngày sinh</label>
+                    <input name="duration_time" value="" type="text" 
+                        class="form-control datepicker-here" 
+                        data-toggle-selected="false" 
+                        placeholder="Nhấn vào để chọn" 
+                        data-auto-close="true" 
+                        data-language="en"
+                        data-date-format="dd-mm-yyyy"
+                        data-first-day="1" 
+                        aria-label="Datepicker" />
+                </div>
+                <div class="col-6 mb-5">
+                    <label class="form-label" for="name">Địa chỉ</label>
+                    <input name="name" value="" type="text" class="form-control" id="name" placeholder="Nhập địa chỉ">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                <button name="edit_category" value="<?=$id?>" type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
-
-<style>
-    #largeImage {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-        transition: transform 1s ease;
-    }
-    #largeImage img {
-        max-width: 100%;
-        max-height: 100%;
-        
-    }
-    #overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 999;
-    }
-    .thumbnail-container {
-        position: relative; /* Để định vị overlay */
-        display: inline-block; /* Để chứa nội dung bên trong */
-    }
-
-    .thumbnail {
-        display: block; /* Để không có khoảng cách dưới ảnh */
-        transition: transform 0.2s; /* Hiệu ứng chuyển tiếp cho phóng to */
-    }
-
-    .thumbnail-container:hover .thumbnail {
-        transform: scale(1.1); /* Phóng to ảnh khi hover */
-    }
-
-    .thumbnail-container:hover {
-        background: rgba(0, 0, 0, 0.3); /* Nền màu đen với độ mờ */
-        border: 1px dashed rgba(0, 0, 0, 0.5); /* Viền đứt nét */
-    }
-
-    .hover-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Căn giữa văn bản */
-        opacity: 0; /* Ẩn văn bản ban đầu */
-        transition: opacity 0.3s; /* Hiệu ứng chuyển tiếp */
-    }
-
-    .thumbnail-container:hover .hover-text {
-        opacity: 1; /* Hiện văn bản khi hover */
-    }
-</style>
-
-<script>
-    const thumbnails = document.querySelectorAll('.thumbnail-container');
-    const largeImageView = document.getElementById('largeImageView');
-    const largeImage = document.getElementById('largeImage');
-    const overlay = document.getElementById('overlay');
-
-    thumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', function() {
-            const img = this.querySelector('.thumbnail');
-            largeImageView.src = img.src; // Lấy src của ảnh
-            largeImage.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-    });
-
-    // Hàm để ẩn ảnh lớn và overlay
-    function hideLargeImage() {
-        largeImage.style.display = 'none';
-        overlay.style.display = 'none';
-    }
-
-    overlay.addEventListener('click', hideLargeImage);
-    largeImage.addEventListener('click', hideLargeImage);
-</script>
