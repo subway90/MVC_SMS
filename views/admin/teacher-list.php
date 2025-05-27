@@ -12,7 +12,7 @@
                         </nav>
                     </div>
                     <div class="col-auto d-flex">
-                        <a href="<?=URL_ADMIN?>them-giao-vien" class="btn btn-primary shadow me-3"><i class="fa fas fa-plus me-2"></i>Thêm cán bộ</a>
+                        <a href="<?=URL_ADMIN?>them-giao-vien" class="btn btn-primary shadow"><i class="fa fas fa-plus me-2"></i>Thêm giáo viên</a>
                     </div>
                 </div>
             </div>
@@ -51,13 +51,13 @@
                             ],
                         ];
                         $arr_address = ["An Giang","Bà Rịa - Vũng Tàu","Bắc Giang","Bắc Kạn","Bến Tre","Bình Định","Bình Dương","Bình Phước","Cà Mau","Cần Thơ","Đà Nẵng","Đắk Lắk","Đắk Nông","Điện Biên","Hà Giang","Hà Nam","Hà Nội","Hà Tĩnh","Hải Dương","Hải Phòng","Hòa Bình","Hưng Yên","Khánh Hòa","Kiên Giang","Kon Tum","Lai Châu","Lâm Đồng","Lạng Sơn","Nam Định","Nghệ An","Ninh Bình","Ninh Thuận","Phú Thọ","Phú Yên","Quảng Bình","Quảng Nam","Quảng Ngãi","Quảng Ninh","Quảng Trị","Sóc Trăng","Sơn La","Tây Ninh","Thái Bình","Thái Nguyên","Thanh Hóa","Thừa Thiên Huế","Tiền Giang","Trà Vinh","Tuyên Quang","Vĩnh Long","Vĩnh Phúc","Yên Bái"];
-                        for ($i=0; $i < 100; $i++) :
+                        for ($i=1; $i <= 100; $i++) :
                             $order_role = rand(0,2);
-                            $order_address = rand(0,52);
+                            $order_address = rand(0,51);
                     ?>
                         <tr class="align-middle">
                             <td class="small">
-                                1
+                                <?= $i ?>
                             </td>
                             <td class="small">
                                 <div class="d-flex align-items-center">
@@ -80,7 +80,7 @@
                                 </div>
                             </td>
                             <td class="small">
-                                <?= $arr_address[$order_address] ?>
+                                Số nhà <?= mt_rand(1,99) . ', Hẻm ' . mt_rand(1,99) . ', Phường ' . mt_rand(1,15). ', Quận ' . mt_rand(1,12). ', ' . $arr_address[$order_address] ?>
                             </td>
                             <td class="small">
                                 <div class="d-flex gap-3">
