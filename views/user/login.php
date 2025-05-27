@@ -17,9 +17,11 @@
 
 <div class="container d-flex justify-content-center align-items-center mt-5 pt-5">
     <div class="col-12 col-md-12 col-lg-4 bg-light p-4 p-lg-5 shadow">
-            <div class="col-12">
-                <h4 class="text-primary fw-bold text-center mb-5">Đăng nhập</h4>
+            <div class="col-12 d-flex justify-content-center align-items-center mb-3">
+                <img class="col-2" src="<?= WEB_LOGO ?>" alt="">
+                <div class="text-primary"><?= WEB_NAME ?></div>
             </div>
+            <h4 class="text-primary fw-bold text-center mb-5 ">Đăng nhập hệ thống</h4>
             <form action="/dang-nhap<?= $return_checkout_page ? '/thanh-toan' : '' ?>" method="post">
                 <div class="col-12 text-center d-flex justify-content-center">
                     <div class="form-floating floating-sm mb-3 w-100">
