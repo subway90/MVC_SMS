@@ -66,7 +66,7 @@
                                         <div class="sa-divider"></div>
                                         <form action="" method="post">
                                             <div class="p-5 d-flex gap-3">
-                                                <select class="form-select">
+                                                <select name="type" class="form-select">
                                                     <option selected disabled >-- Nhấn vào để chọn --</option>
                                                     <option value="1">Sách phục vụ đào tạo</option>
                                                     <option value="2">Đề tài khoa học</option>
@@ -79,6 +79,7 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <?php if($show_history) : ?>
                                     <div class="card mt-5">
                                         <div
                                             class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
@@ -110,6 +111,7 @@
                                             </table>
                                         </div>
                                     </div>
+                                    <?php endif ?>
                                 </div>
                             </div>
                         </div>
