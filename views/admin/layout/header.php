@@ -60,7 +60,7 @@
                             <ul class="sa-nav__menu sa-nav__menu--root">
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon">
                                     <a href="<?= URL_ADMIN ?>quan-li-giao-vien"
-                                        class="sa-nav__link <?= ($page == 'teacher') ? 'bg-dark' : '' ?>">
+                                        class="sa-nav__link <?= ($page == 'teacher-list') ? 'active' : '' ?>">
                                         <span class="sa-nav__icon">
                                             <i class="fas fa-user"></i>
                                         </span>
@@ -75,7 +75,7 @@
                             <ul class="sa-nav__menu sa-nav__menu--root">
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon">
                                     <a href="<?= URL_ADMIN ?>giao-dien"
-                                        class="sa-nav__link <?= ($page == 'appearance') ? 'bg-dark' : '' ?>">
+                                        class="sa-nav__link <?= ($page == 'appearance') ? 'active' : '' ?>">
                                         <span class="sa-nav__icon">
                                             <i class="fas fa-adjust"></i>
                                         </span>
@@ -84,7 +84,7 @@
                                 </li>
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon">
                                     <a href="<?= URL_ADMIN ?>chung"
-                                        class="sa-nav__link <?= ($page == 'settings') ? 'bg-dark' : '' ?>">
+                                        class="sa-nav__link <?= ($page == 'settings') ? 'active' : '' ?>">
                                         <span class="sa-nav__icon">
                                             <i class="fas fa-sliders-h"></i>
                                         </span>

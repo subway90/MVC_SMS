@@ -5960,6 +5960,10 @@ input:checked+.sa-color-checkbox__box {
     background-color: #e5e7e9
 }
 
+.sa-nav--sidebar .active {
+    background-color: #e5e7e9
+}
+
 .sa-nav--sidebar .sa-nav__menu-item-padding {
     width: 1rem
 }
