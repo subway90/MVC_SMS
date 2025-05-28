@@ -32,4 +32,4 @@ if(isset($_GET['act']) && $_GET['act']) {
     }
 }
 // Trường hợp không có action
-else require_once 'controllers/user/dang-nhap.php';
+else require_once 'controllers/user/trang-chu.php';

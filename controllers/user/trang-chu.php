@@ -1,3 +1,9 @@
 <?php
 
-route('/admin');
+# [DATA]
+$data = [
+
+];
+
+# [RENDER]
+view('user','Trang chủ','home',$data);
