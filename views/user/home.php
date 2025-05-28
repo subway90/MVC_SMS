@@ -994,12 +994,26 @@
         <a href="#testimonials"
           ><i class="fas fa-comments"></i><span>Đánh Giá</span></a
         >
-        <div class="sidebar-cta" id="signUpButton">
-          <i class="fas fa-user-plus"></i><span>Đăng Ký</span>
-        </div>
-        <a href="<?= URL ?>dang-nhap" class="sidebar-cta">
-          <i class="fas fa-sign-in-alt"></i><span>Đăng Nhập</span>
-        </a>
+        <?php if(is_login()): ?>
+          <div class="sidebar-cta text-light">
+              <i class="fas fa-user text-light"></i><span><?= auth('full_name') ?></span>
+            </div>
+          <?php if(auth('name_role') === 'admin') : ?>
+            <a href="<?= URL_ADMIN ?>" class="sidebar-cta text-light">
+              <i class="fas fa-cog text-light"></i><span>Trang quản trị</span>
+            </a>
+          <?php endif ?>
+        <?php else : ?>
+          <!-- <div class="sidebar-cta" id="signUpButton">
+            <i class="fas fa-user-plus"></i><span>Đăng Ký</span>
+          </div>
+          <div class="sidebar-cta" id="signInButton">
+            <i class="fas fa-sign-in-alt"></i><span>Đăng Nhập</span>
+          </div> -->
+          <a href="<?= URL ?>dang-nhap" class="sidebar-cta">
+            <i class="fas fa-sign-in-alt text-light"></i><span>Đăng Nhập</span>
+          </a>
+        <?php endif ?>
         <div class="user-info" id="userInfo">
           <img id="userAvatar" src="" alt="User Avatar" />
           <span id="userName"></span>
