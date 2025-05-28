@@ -997,7 +997,7 @@
         <div class="sidebar-cta" id="signUpButton">
           <i class="fas fa-user-plus"></i><span>Đăng Ký</span>
         </div>
-        <a href="<?= URL ?>dang-nhap" class="sidebar-cta" id="signInButton">
+        <a href="<?= URL ?>dang-nhap" class="sidebar-cta">
           <i class="fas fa-sign-in-alt"></i><span>Đăng Nhập</span>
         </a>
         <div class="user-info" id="userInfo">
